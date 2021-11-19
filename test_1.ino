@@ -29,15 +29,7 @@ void setup()
   pinMode(13,OUTPUT);
   pinMode(12,OUTPUT);
   pinMode(A0,INPUT);
-
-
-}
-
-
-void loop()
-{
-
-
+  
 digitalRead(Reset, LOW);
 delayMicroseconds(72);
 digitalRead(Reset, HIGH);
@@ -49,24 +41,21 @@ delayMicroseconds(72);
 digitalRead(Strobe, HIGH);
 delayMicroseconds(72);
 
+}
+
+
+void loop()
+{
+
+
 
 
 int i;
 for ( i = 0; i < 7; i++) {
-  
-  
-  
-  digitalWrite(Strobe, LOW);
-  delayMicroseconds(72);
-  
+ 
   
   val[i] = analogRead(AnalogPin);
   Serial.println(val[i]);
-  
-  
-  digitalWrite(Strobe, HIGH);
-  delayMicroseconds(72);
-
   
   }
 }
