@@ -26,7 +26,9 @@ int val[7];
 void setup()
 {
   Serial.begin(9600); //open serial port
-  
+  pinMode(13,OUTPUT);
+  pinMode(12,OUTPUT);
+  pinMode(A0,INPUT);
 
 
 }
