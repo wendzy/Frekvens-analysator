@@ -17,34 +17,53 @@
   - Våg
   -
 */
-int Reset = A1;
-int Strobe = A2;
+int Reset = ;
+int Strobe = ;
 int AnalogPin = A0;
 
 
 void setup()
 {
   Serial.begin(9600); //open serial port
+  
 
 
 }
 
 
 void loop()
+{
 
-digitalWrite(Reset, HIGH);
-digitalWrite(Reset, LOW);
+
+digitalRead(Reset, LOW);
+delayMicroseconds(72);
+digitalRead(Reset, HIGH);
+delayMicroseconds(72);
+
+digitalRead(Strobe, LOW);
+delayMicroseconds(72);
+digitalRead(Strobe, HIGH);
+delayMicroseconds(72);
+
 
 
 int i;
 for ( i = 0; i < 7; i++) {
-
-  digitalWrite(Strobe, HIGH)
-
+  
+  
+  
+  digitalWrite(Strobe, LOW);
+  delayMicroseconds(72);
+  
+  
 
   val[i] = analogRead(AnalogPin);
   Serial.println(val[i]);
+  
+  
+  digitalWrite(Strobe, HIGH);
+  delayMicroseconds(72);
 
-  digitalWrite(Strobe, LOW)
-
+  
+  }
 }
