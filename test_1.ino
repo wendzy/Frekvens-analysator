@@ -20,6 +20,7 @@
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
+int val[7];
 
 
 void setup()
@@ -57,7 +58,6 @@ for ( i = 0; i < 7; i++) {
   delayMicroseconds(72);
   
   
-
   val[i] = analogRead(AnalogPin);
   Serial.println(val[i]);
   
