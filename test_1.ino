@@ -30,15 +30,15 @@ void setup()
   pinMode(12,OUTPUT);
   pinMode(A0,INPUT);
   
-digitalRead(Reset, LOW);
+digitalRead(13, LOW);
 delayMicroseconds(72);
-digitalRead(Reset, HIGH);
+digitalRead(13, HIGH);
 delayMicroseconds(72);
-digitalRead(Reset, LOW);
+digitalRead(13, LOW);
   
-digitalRead(Strobe, LOW);
+digitalRead(12, LOW);
 delayMicroseconds(72);
-digitalRead(Strobe, HIGH);
+digitalRead(12, HIGH);
 delayMicroseconds(72);
 
 }
