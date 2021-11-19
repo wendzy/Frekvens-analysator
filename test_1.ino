@@ -34,11 +34,21 @@ digitalRead(13, LOW);
 delayMicroseconds(72);
 digitalRead(13, HIGH);
 delayMicroseconds(72);
-digitalRead(13, LOW);
   
 digitalRead(12, LOW);
 delayMicroseconds(72);
 digitalRead(12, HIGH);
+delayMicroseconds(72);
+  
+  
+digitalWrite(13, LOW);
+delayMicroseconds(72);
+digitalWrite(13, HIGH);
+delayMicroseconds(72);
+  
+ digitalWrite(12, LOW);
+delayMicroseconds(72);
+digitalWrite(12, HIGH);
 delayMicroseconds(72);
 
 }
