@@ -54,7 +54,7 @@ int i;
 for ( i = 0; i < 7; i++) {
  
   
-  val[i] = analogRead(AnalogPin);
+  val[i] = analogRead(A0);
   Serial.println(val[i]);
   
   }
