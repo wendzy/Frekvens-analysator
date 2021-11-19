@@ -30,16 +30,6 @@ void setup()
   pinMode(12,OUTPUT);
   pinMode(A0,INPUT);
   
-digitalRead(13, LOW);
-delayMicroseconds(72);
-digitalRead(13, HIGH);
-delayMicroseconds(72);
-  
-digitalRead(12, LOW);
-delayMicroseconds(72);
-digitalRead(12, HIGH);
-delayMicroseconds(72);
-  
   
 digitalWrite(13, LOW);
 delayMicroseconds(72);
