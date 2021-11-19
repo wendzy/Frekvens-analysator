@@ -17,8 +17,8 @@
   - Våg
   -
 */
-int Reset = ;
-int Strobe = ;
+int Reset = 13;
+int Strobe = 12;
 int AnalogPin = A0;
 
 
@@ -39,7 +39,8 @@ digitalRead(Reset, LOW);
 delayMicroseconds(72);
 digitalRead(Reset, HIGH);
 delayMicroseconds(72);
-
+digitalRead(Reset, LOW);
+  
 digitalRead(Strobe, LOW);
 delayMicroseconds(72);
 digitalRead(Strobe, HIGH);
