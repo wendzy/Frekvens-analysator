@@ -26,19 +26,23 @@ int val[7];
 void setup()
 {
   Serial.begin(9600); //open serial port
-  pinMode(13,OUTPUT);
-  pinMode(12,OUTPUT);
+  
+  //define port
+  pinMode(Reset,OUTPUT);
+  pinMode(Strobe,OUTPUT);
   pinMode(A0,INPUT);
   
+  //Skapa tillstånd för pin
+digitalWrite(Reset, LOW);
+delayMicroseconds(72);
+digitalWrite(Strobe, LOW);
+delayMicroseconds(72);
   
-digitalWrite(13, LOW);
+ //Reset OP-AMP
+digitalWrite(Reset, LOW);
 delayMicroseconds(72);
-digitalWrite(13, HIGH);
-delayMicroseconds(72);
-  
- digitalWrite(12, LOW);
-delayMicroseconds(72);
-digitalWrite(12, HIGH);
+digitalWrite(Reset, HIGH);
+digitalWrite(Strobe, HIGH);
 delayMicroseconds(72);
 
 }
@@ -47,20 +51,17 @@ delayMicroseconds(72);
 void loop()
 {
 
-
-
-
 int i;
 for ( i = 0; i < 7; i++) {
  
- digitalWrite(12, LOW);
-delayMicroseconds(72);
+  digitalWrite(Strobe, LOW);
+  delayMicroseconds(72);
   
   val[i] = analogRead(A0);
   Serial.println(val[i]);
   
-  digitalWrite(12, HIGH);
-delayMicroseconds(72);
+ digitalWrite(Strobe, HIGH);
+ delayMicroseconds(72);
   
   }
 }
