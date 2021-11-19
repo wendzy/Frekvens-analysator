@@ -53,9 +53,14 @@ void loop()
 int i;
 for ( i = 0; i < 7; i++) {
  
+ digitalWrite(12, LOW);
+delayMicroseconds(72);
   
   val[i] = analogRead(A0);
   Serial.println(val[i]);
+  
+  digitalWrite(12, HIGH);
+delayMicroseconds(72);
   
   }
 }
