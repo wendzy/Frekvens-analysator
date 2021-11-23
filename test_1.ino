@@ -95,16 +95,16 @@ for ( i = 0; i < 7; i++) {
   digitalWrite(Strobe, LOW);
   delayMicroseconds(72);
   
-  Freq_val = analogRead(Analogpin);
-  Serial.println(val[i]);
+  Freq_val[i] = analogRead(Analogpin);
+  Serial.println(Freq_val[i]);
   
-  Freq_val =(Freq_val/1023)*7
+  Freq_val1 =(Freq_val[i]/1023)*7
   
   
  digitalWrite(Strobe, HIGH);
  delayMicroseconds(72);
   
-  for ( i = 0; i < Freq_val; i++) {
+  for ( i = 0; i < Freq_val1; i++) {
    
   strip.setPixelColor(i, 51+i, 153+i, 255-i);
   strip.show();
