@@ -59,12 +59,15 @@ delayMicroseconds(72);
 
 }
 
+void button()
+{
+
+}
 
 void loop()
 {
 
-int i;
-for ( i = 0; i < 7; i++) {
+for ( int i = 0; i < 7; i++) {
  
   digitalWrite(Strobe, LOW);
   delayMicroseconds(72);
