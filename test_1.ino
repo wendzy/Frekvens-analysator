@@ -23,10 +23,10 @@
 
 // Which pin on the Arduino is connected to the NeoPixels?
 // On a Trinket or Gemma we suggest changing this to 1:
-#define LED_PIN    
+#define LED_PIN    6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 10
+#define LED_COUNT 7
 
 // Declare our NeoPixel strip object:
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
@@ -42,9 +42,10 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
-int Freq_val;
+int Freq_val[7];
+int Freq_val1;
 //int RGB = ;
-int val[7];
+int LED = 6;
 
 void setup()
 {
@@ -54,7 +55,7 @@ void setup()
   pinMode(Reset,OUTPUT);
   pinMode(Strobe,OUTPUT);
   pinMode(AnalogPin,INPUT);
-  pinMode(RGB, INPUT);
+  pinMode(LED, OUTPUT);
   
   //Skapa tillstånd för pin
 digitalWrite(Reset, LOW);
@@ -68,7 +69,8 @@ delayMicroseconds(72);
 digitalWrite(Reset, HIGH);
 digitalWrite(Strobe, HIGH);
 delayMicroseconds(72);
-
+digitalWrite(Reset, LOW);
+delayMicroseconds(72);
 }
 
 //void button()
@@ -95,10 +97,10 @@ for ( i = 0; i < 7; i++) {
   digitalWrite(Strobe, LOW);
   delayMicroseconds(72);
   
-  Freq_val[i] = analogRead(Analogpin);
+  Freq_val[i] = analogRead(AnalogPin);
   Serial.println(Freq_val[i]);
   
-  Freq_val1 =(Freq_val[i]/1023)*7
+  Freq_val1 =(Freq_val[i]/1023)*7;
   
   
  digitalWrite(Strobe, HIGH);
