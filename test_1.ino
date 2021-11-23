@@ -42,17 +42,9 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
+int Freq_val;
 //int RGB = ;
 int val[7];
-
-void setupRGB()
-{
-  strip.begin();
-  strip.show();
-  strip.setPixelColor(9, red, green, blue);
-  
-  //n = antal pixel 
-}
 
 void setup()
 {
@@ -93,18 +85,46 @@ delayMicroseconds(72);
 
 void loop()
 {
-
-for ( int i = 0; i < 7; i++) {
+  
+  int i;
+    
+  strip.begin(); 
+  
+for ( i = 0; i < 7; i++) {
  
   digitalWrite(Strobe, LOW);
   delayMicroseconds(72);
   
-  val[i] = analogRead(Analogpin);
+  Freq_val = analogRead(Analogpin);
   Serial.println(val[i]);
+  
+  Freq_val =(Freq_val/1023)*7
+  
   
  digitalWrite(Strobe, HIGH);
  delayMicroseconds(72);
   
+  for ( i = 0; i < Freq_val; i++) {
+   
+  strip.setPixelColor(i, 51+i, 153+i, 255-i);
+  strip.show();
+    
   }
+  
+  }
+  
 }
-
+//for ( i = 0; i < 7; i++) {
+ 
+//  digitalWrite(Strobe, LOW);
+  //delayMicroseconds(72);
+  
+  //val[i] = analogRead(Analogpin);
+  //Serial.println(val[i]);
+  
+ //analogRead(Analogpin) = 
+  
+  
+ // digitalWrite(Strobe, HIGH);
+ // delayMicroseconds(72);
+  
