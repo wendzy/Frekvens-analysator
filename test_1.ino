@@ -130,3 +130,4 @@ for ( i = 0; i < 7; i++) {
  // digitalWrite(Strobe, HIGH);
  // delayMicroseconds(72);
   
+//https://www.megunolink.com/documentation/arduino-libraries/exponential-filter/
