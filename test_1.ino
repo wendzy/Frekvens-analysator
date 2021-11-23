@@ -42,6 +42,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
+//int RGB = ;
 int val[7];
 
 void setupRGB()
@@ -60,7 +61,8 @@ void setup()
   //define port
   pinMode(Reset,OUTPUT);
   pinMode(Strobe,OUTPUT);
-  pinMode(A0,INPUT);
+  pinMode(AnalogPin,INPUT);
+  pinMode(RGB, INPUT);
   
   //Skapa tillstånd för pin
 digitalWrite(Reset, LOW);
@@ -77,10 +79,17 @@ delayMicroseconds(72);
 
 }
 
-void button()
-{
-
-}
+//void button()
+//{
+  
+  //int knapp = digitalRead();
+  
+  
+  //while( knapp = 1 && knapp = 0 )
+  //{
+    
+  //}
+//}
 
 void loop()
 {
