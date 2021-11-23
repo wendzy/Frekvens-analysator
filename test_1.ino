@@ -16,12 +16,24 @@
   - Regnbåge
   - Våg
   -
+  
 */
+
+#include <Adafruit_NeoPixel.h>
+
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
 int val[7];
 
+void setupRGB()
+{
+  strip.begin();
+  strip.show();
+  strip.setPixelColor(n, red, green, blue);
+  
+  //n = antal pixel 
+}
 
 void setup()
 {
@@ -57,7 +69,7 @@ for ( i = 0; i < 7; i++) {
   digitalWrite(Strobe, LOW);
   delayMicroseconds(72);
   
-  val[i] = analogRead(A0);
+  val[i] = analogRead(Analogpin);
   Serial.println(val[i]);
   
  digitalWrite(Strobe, HIGH);
@@ -65,3 +77,4 @@ for ( i = 0; i < 7; i++) {
   
   }
 }
+
