@@ -42,7 +42,7 @@ Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
 int Reset = 13;
 int Strobe = 12;
 int AnalogPin = A0;
-int Freq_val[7];
+int Freq_val[7] = {63, 160, 400, 1000, 2500, 6250, 16000};
 int Freq_val1;
 //int RGB = ;
 int LED = 6;
@@ -59,13 +59,10 @@ void setup()
   
   //Skapa tillstånd för pin
 digitalWrite(Reset, LOW);
-delayMicroseconds(72);
 digitalWrite(Strobe, LOW);
 delayMicroseconds(72);
   
- //Reset OP-AMP
-digitalWrite(Reset, LOW);
-delayMicroseconds(72);
+ //Reset OP-AMP;
 digitalWrite(Reset, HIGH);
 digitalWrite(Strobe, HIGH);
 delayMicroseconds(72);
@@ -98,23 +95,27 @@ for ( i = 0; i < 7; i++) {
   delayMicroseconds(72);
   
   Freq_val[i] = analogRead(AnalogPin);
-  Serial.println(Freq_val[i]);
+  //Serial.print(Freq_val[i]);
+  //Serial.print("  ");
   
-  Freq_val1 =(Freq_val[i]/1023)*7;
-  
-  
+  Freq_val1 =((Freq_val[i])/(350/7));
+  Serial.print(Freq_val1);
+  Serial.print("  ");
  digitalWrite(Strobe, HIGH);
  delayMicroseconds(72);
-  
-  for ( i = 0; i < Freq_val1; i++) {
-   
-  strip.setPixelColor(i, 51+i, 153+i, 255-i);
-  strip.show();
+
+}
+
+
+ for ( i = 0; i < Freq_val1; i++) {
+ 
+ strip.setPixelColor(i, 51, 0, 51);
+ strip.show();
+ delay(1);
     
   }
   
-  }
-  
+  Serial.println();
 }
 //for ( i = 0; i < 7; i++) {
  
@@ -130,4 +131,3 @@ for ( i = 0; i < 7; i++) {
  // digitalWrite(Strobe, HIGH);
  // delayMicroseconds(72);
   
-//https://www.megunolink.com/documentation/arduino-libraries/exponential-filter/
