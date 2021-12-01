@@ -59,15 +59,9 @@ void setup()
   
   //Skapa tillstånd för pin
 digitalWrite(Reset, LOW);
-digitalWrite(Strobe, LOW);
-delayMicroseconds(72);
-  
- //Reset OP-AMP;
-digitalWrite(Reset, HIGH);
 digitalWrite(Strobe, HIGH);
 delayMicroseconds(72);
-digitalWrite(Reset, LOW);
-delayMicroseconds(72);
+  
 }
 
 //void button()
@@ -82,27 +76,36 @@ delayMicroseconds(72);
   //}
 //}
 
-void loop()
-{
+void loop(){
   
   int i;
     
   strip.begin(); 
   
-for ( i = 0; i < 7; i++) {
- 
-  digitalWrite(Strobe, LOW);
-  delayMicroseconds(72);
   
-  Freq_val[i] = analogRead(AnalogPin);
+   //Reset OP-AMP;
+  digitalWrite(Reset, HIGH);
+  digitalWrite(Reset, LOW);
+  delayMicroseconds(72);
+
+  for ( i = 0; i < 7; i++) {
+ 
+    digitalWrite(Strobe, LOW);
+    delayMicroseconds(36);
+  
+    Freq_val[i] = analogRead(AnalogPin);
+  
+  
+    if (Freq_val[i] < 45) Freq_val[i] = 0; // remove low-level noise
+    
   //Serial.print(Freq_val[i]);
   //Serial.print("  ");
   
-  Freq_val1 =((Freq_val[i])/(350/7));
-  Serial.print(Freq_val1);
-  Serial.print("  ");
- digitalWrite(Strobe, HIGH);
- delayMicroseconds(72);
+    Freq_val1 =((Freq_val[i])/(350/7));
+    Serial.print(Freq_val1);
+    Serial.print("  ");
+    digitalWrite(Strobe, HIGH);
+    delayMicroseconds(36);
 
 }
 
