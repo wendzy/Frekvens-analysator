@@ -96,8 +96,12 @@ void loop(){
     Freq_val[i] = analogRead(AnalogPin);
   
   
-    if (Freq_val[i] < 45) Freq_val[i] = 0; // remove low-level noise
-    
+    if (Freq_val[i] < 45)
+    {
+      
+      Freq_val[i] = 0; // remove low-level noise
+      
+    }
   //Serial.print(Freq_val[i]);
   //Serial.print("  ");
   
