@@ -26,7 +26,7 @@
 #define LED_PIN    6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 7
+#define LED_COUNT 8
 
 // Declare our NeoPixel strip object:
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_RGB + NEO_KHZ800);
@@ -91,7 +91,7 @@ void loop(){
   for ( i = 0; i < 7; i++) {
  
     digitalWrite(Strobe, LOW);
-    delayMicroseconds(36);
+    delayMicroseconds(3600);
   
     Freq_val[i] = analogRead(AnalogPin);
   
@@ -102,27 +102,26 @@ void loop(){
       Freq_val[i] = 0; // remove low-level noise
       
     }
-  //Serial.print(Freq_val[i]);
-  //Serial.print("  ");
+
   
-    Freq_val1 =((Freq_val[i])/(350/7));
+    Freq_val1 =((Freq_val[i])/128);
     Serial.print(Freq_val1);
     Serial.print("  ");
     digitalWrite(Strobe, HIGH);
     delayMicroseconds(36);
-
+    
 }
-
+  strip.clear();
 
  for ( i = 0; i < Freq_val1; i++) {
- 
- strip.setPixelColor(i, 51, 0, 51);
+ strip.setPixelColor(i, 0, 50, 50);
  strip.show();
  delay(1);
     
   }
   
   Serial.println();
+  delay(250);
 }
 //for ( i = 0; i < 7; i++) {
  
