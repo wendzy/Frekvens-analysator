@@ -30,9 +30,13 @@
 
 // Declare our NeoPixel strip object:
 
-Adafruit_NeoPixel strip(LED_COUNT, 5, NEO_RGB + NEO_KHZ800);
-Adafruit_NeoPixel strip1(LED_COUNT, 6, NEO_RGB + NEO_KHZ800);
-
+Adafruit_NeoPixel strip(LED_COUNT, 2, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip1(LED_COUNT, 3, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip2(LED_COUNT, 4, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip3(LED_COUNT, 5, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip4(LED_COUNT, 6, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip5(LED_COUNT, 7, NEO_RGB + NEO_KHZ800);
+Adafruit_NeoPixel strip6(LED_COUNT, 8, NEO_RGB + NEO_KHZ800);
 
 // Argument 1 = Number of pixels in NeoPixel strip
 // Argument 2 = Arduino pin number (most are valid)
@@ -57,7 +61,7 @@ void setup()
   pinMode(Reset,OUTPUT);
   pinMode(Strobe,OUTPUT);
   pinMode(AnalogPin,INPUT);
-  for (int i = 5; i < 6; i++)
+  for (int i = 2; i < 8; i++)
   {
   pinMode(i, OUTPUT);
   }
@@ -88,7 +92,12 @@ void loop(){
   
   strip.begin(); 
   strip1.begin();
-  
+  strip2.begin();
+  strip3.begin();
+  strip4.begin();
+  strip5.begin();
+  strip6.begin();
+
   
    //Reset OP-AMP;
   digitalWrite(Reset, HIGH);
@@ -103,7 +112,7 @@ void loop(){
     Freq_val[i] = analogRead(AnalogPin);
   
   
-    if (Freq_val[i] < 45)
+    if (Freq_val[i] < 55)
     {
       
       Freq_val[i] = 0; // remove low-level noise
@@ -111,7 +120,7 @@ void loop(){
     }
 
   
-    Freq_val[i] =((Freq_val[i])*6/128);
+    Freq_val[i] =((Freq_val[i]*2)/128);
     Serial.print(Freq_val[i]);
     //Serial.print(Freq_val2);
     Serial.print("  ");
@@ -121,6 +130,11 @@ void loop(){
 }
   strip.clear();
   strip1.clear();
+  strip2.clear();
+  strip3.clear();
+  strip4.clear();
+  strip5.clear();
+  strip6.clear();
 
  for ( i = 0; i < Freq_val[0]; i++) {
  strip.setPixelColor(i, 0, 50, 50);
@@ -130,8 +144,44 @@ void loop(){
   }
 
  for ( i = 0; i < Freq_val[1]; i++) {
- strip1.setPixelColor(i, 0, 50, 50);
+ strip1.setPixelColor(i, 0, 20, 20);
  strip1.show();
+ delay(1);
+    
+  }
+
+ for ( i = 0; i < Freq_val[2]; i++) {
+ strip2.setPixelColor(i, 0, 50, 50);
+ strip2.show();
+ delay(1);
+    
+  }
+
+ for ( i = 0; i < Freq_val[3]; i++) {
+ strip3.setPixelColor(i, 0, 30+25*i, 50-5*i);
+ strip3.show();
+ delay(1);
+    
+  }
+
+
+ for ( i = 0; i < Freq_val[4]; i++) {
+ strip4.setPixelColor(i, 40*i, 50-10*i, 50-10*i);
+ strip4.show();
+ delay(1);
+    
+  }
+
+ for ( i = 0; i < Freq_val[5]; i++) {
+ strip5.setPixelColor(i, 0, 50, 50);
+ strip5.show();
+ delay(1);
+    
+  }
+
+ for ( i = 0; i < Freq_val[6]; i++) {
+ strip6.setPixelColor(i, 0, 50, 50);
+ strip6.show();
  delay(1);
     
   }
