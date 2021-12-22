@@ -23,10 +23,10 @@
 
 // Which pin on the Arduino is connected to the NeoPixels?
 // On a Trinket or Gemma we suggest changing this to 1:
-//#define LED_PIN    6
+
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 8
+#define LED_COUNT 7
 
 // Declare our NeoPixel strip object:
 
@@ -112,7 +112,7 @@ void loop(){
     Freq_val[i] = analogRead(AnalogPin);
   
   
-    if (Freq_val[i] < 55)
+    if (Freq_val[i] < 60)
     {
       
       Freq_val[i] = 0; // remove low-level noise
@@ -120,7 +120,7 @@ void loop(){
     }
 
   
-    Freq_val[i] =((Freq_val[i]*2)/128);
+    Freq_val[i] =((Freq_val[i]*5)/(512));
     Serial.print(Freq_val[i]);
     //Serial.print(Freq_val2);
     Serial.print("  ");
@@ -136,57 +136,57 @@ void loop(){
   strip5.clear();
   strip6.clear();
 
- for ( i = 0; i < Freq_val[0]; i++) {
- strip.setPixelColor(i, 0, 50, 50);
+ for ( i = 0; i < Freq_val[6]; i++) {
+ strip.setPixelColor(i, 26*i, 100,0 );
  strip.show();
  delay(1);
     
   }
 
- for ( i = 0; i < Freq_val[1]; i++) {
- strip1.setPixelColor(i, 0, 20, 20);
+ for ( i = 0; i < Freq_val[2]; i++) {
+ strip1.setPixelColor(i, 16*i, 100, 0);
  strip1.show();
  delay(1);
     
   }
 
- for ( i = 0; i < Freq_val[2]; i++) {
- strip2.setPixelColor(i, 0, 50, 50);
+ for ( i = 0; i < Freq_val[5]; i++) {
+ strip2.setPixelColor(i, 16*i, 100, 0);
  strip2.show();
  delay(1);
     
   }
 
- for ( i = 0; i < Freq_val[3]; i++) {
- strip3.setPixelColor(i, 0, 30+25*i, 50-5*i);
+ for ( i = 0; i < Freq_val[4]; i++) {
+ strip3.setPixelColor(i, 26*i, 100, 0);
  strip3.show();
  delay(1);
     
   }
 
 
- for ( i = 0; i < Freq_val[4]; i++) {
- strip4.setPixelColor(i, 40*i, 50-10*i, 50-10*i);
+ for ( i = 0; i < Freq_val[1]; i++) {
+ strip4.setPixelColor(i, 16*i, 100, 0);
  strip4.show();
  delay(1);
     
   }
 
- for ( i = 0; i < Freq_val[5]; i++) {
- strip5.setPixelColor(i, 0, 50, 50);
+ for ( i = 0; i < Freq_val[0]; i++) {
+ strip5.setPixelColor(i, 16*i, 100, 0);
  strip5.show();
  delay(1);
     
   }
 
- for ( i = 0; i < Freq_val[6]; i++) {
- strip6.setPixelColor(i, 0, 50, 50);
+ for ( i = 0; i < Freq_val[3]; i++) {
+ strip6.setPixelColor(i, 16*i, 100, 0);
  strip6.show();
  delay(1);
     
   }
   Serial.println();
-  delay(50);
+  delay(1);
 }
 //for ( i = 0; i < 7; i++) {
  
