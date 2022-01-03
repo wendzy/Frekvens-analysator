@@ -137,7 +137,7 @@ void loop(){
   strip6.clear();
 
  for ( i = 0; i < Freq_val[6]; i++) {
- strip.setPixelColor(i, 26*i, 100,0 );
+ strip.setPixelColor(i, 16*i, 100,0 );
  strip.show();
  delay(1);
     
@@ -151,14 +151,14 @@ void loop(){
   }
 
  for ( i = 0; i < Freq_val[5]; i++) {
- strip2.setPixelColor(i, 16*i, 100, 0);
+ strip2.setPixelColor(i, 100, 16*i, 0);
  strip2.show();
  delay(1);
     
   }
 
  for ( i = 0; i < Freq_val[4]; i++) {
- strip3.setPixelColor(i, 26*i, 100, 0);
+ strip3.setPixelColor(i, 16*i, 100, 0);
  strip3.show();
  delay(1);
     
@@ -166,7 +166,7 @@ void loop(){
 
 
  for ( i = 0; i < Freq_val[1]; i++) {
- strip4.setPixelColor(i, 16*i, 100, 0);
+ strip4.setPixelColor(i, 100, 16*i, 0);
  strip4.show();
  delay(1);
     
@@ -180,7 +180,7 @@ void loop(){
   }
 
  for ( i = 0; i < Freq_val[3]; i++) {
- strip6.setPixelColor(i, 16*i, 100, 0);
+ strip6.setPixelColor(i, 100, 16*i, 0);
  strip6.show();
  delay(1);
     
